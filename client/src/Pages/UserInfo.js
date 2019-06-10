@@ -52,7 +52,7 @@ class UserInfo extends Component {
             city: this.state.city,
             userState: this.state.userState
         })
-        .then(res => this.loadUser())
+        // .then(res => this.loadUser())
         .catch(err => console.log(err));
     }
 };
