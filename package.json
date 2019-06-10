@@ -6,27 +6,22 @@
   "dependencies": {
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
+    "concurrently": "^4.1.0",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "formik": "^1.5.7",
-    "mongoose": "^5.5.14",
-    "react": "^16.8.6",
-    "react-bootstrap": "^1.0.0-beta.9",
-    "react-dom": "^16.8.6",
-    "react-router-dom": "^5.0.1",
-    "react-scripts": "3.0.1",
-    "yup": "^0.27.0"
+    "mongoose": "^5.5.14"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js && node scripts/seedDB.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "seed": "node scripts/seedDB.js",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build"
   },
-
-  
-  
-
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -42,7 +37,4 @@
       "last 1 safari version"
     ]
   }
-
-  
 }
-  
