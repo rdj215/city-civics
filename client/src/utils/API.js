@@ -17,7 +17,7 @@ export default {
        return axios.get("http://localhost:3001/api/users" + id)
    },
 
-   saveUser: function(userData) {
+   saveUser: function(userData) {console.log(userData);
        return axios.post("http://localhost:3001/api/users", userData)
    }
 };

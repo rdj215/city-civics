@@ -9,7 +9,7 @@ export default function Nav(){
     return(
         <nav style={navStyle} className="navbar navbar-expand-lg navbar-light bg-light">
         
-  <a className="navbar-brand" href="/">Navbar</a>
+  <a className="navbar-brand" href="/">Civics City</a>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
   </button>
@@ -19,13 +19,7 @@ export default function Nav(){
         <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="/">Features</a>
-      </li>
-      <li className="nav-item">
-        <a className="nav-link" href="/">Pricing</a>
-      </li>
-      <li className="nav-item">
-        <a className="nav-link disabled" href="/" tabindex="-1" aria-disabled="true">Disabled</a>
+        <a className="nav-link" href="/login">Sign Up</a>
       </li>
     </ul>
   </div>

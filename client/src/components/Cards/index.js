@@ -9,8 +9,8 @@ export default  function Cards(children,id){
         <div key={id} className="card" style={cardStyle}>
   <div className="card-body">
     <h5 className="card-title">{children}</h5>
-    <p className="card-text">{children}</p>
-    <a href="/" className="btn btn-primary">Go somewhere</a>
+    <p className="card-text">{}</p>
+    <a href="/" className="btn btn-primary">Learn More</a>
   </div>
 </div>
     )

@@ -7,6 +7,7 @@ const userSchema = new Schema({
     streetAddress: {type: String, required: true},
     city: {type: String, required:true},
     userState: {type: String, required:true},
+    zip:{type: String, required:true},
     date: {type: Date, default: Date.now}
 });
 

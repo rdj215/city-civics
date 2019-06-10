@@ -5,7 +5,12 @@ import Col from 'react-bootstrap/Col';
 import {Input, FormBtn } from '../components/Form';
 // import { Link } from "react-router-dom";
 import API from "../utils/API";
-
+const homeStyle = {
+    backgroundcolor: 'green'
+    
+}
+const queryUrl ="https://www.googleapis.com/civicinfo/v2/representatives?key=AIzaSyD94j3PxJF135ewOPPSHaPh49-9g9rk6dY&address=Philadelphia,PA"
+// const addy = "Philadelphi, PA"
 class UserInfo extends Component {
     state = {
         users: [],
@@ -14,21 +19,39 @@ class UserInfo extends Component {
         streetAddress:"",
         city:"",
         userState:"",
-        
+        zip:"",
+        officials:[]
 
     };
 
     // componentDidMount(){
-    //     this.loadUser()
+    //     this.loadElects()
     // }
 
-    // loadUser = id => {
+    // loadElects = id => {
+        
     //     // eslint-disable-next-line no-undef
-    //     API.getUser(id)
-    //     .then(res =>
-    //     this.setState({email:"", streetAddress:"", city:"", state:"" })
-    //         )
-    //     .catch(err => console.log(err));
+    //     fetch(queryUrl)
+    //     .then(results => {
+            
+    //         console.log(results)
+    //         return results.json();}).then(res => console.log(res));
+            // console.log(results.json)
+        // }).then(data => {
+        //     let elects = data.results.map((info) =>{
+        //         return(
+        //             <div key={info.results} >
+        //             < div {...info.picture} />
+        //             </div>
+        //         )
+        //     })
+        //     this.setState({info: info});
+           
+        
+    
+    // };
+
+        // .catch(err => console.log(err));
     // };
 
     handleInputChange = event => {
@@ -50,18 +73,24 @@ class UserInfo extends Component {
             password: this.state.password,
             streetAddress: this.state.streetAddress,
             city: this.state.city,
-            userState: this.state.userState
+            userState: this.state.userState,
+            zip: this.state.zip
         })
+        
         // .then(res => this.loadUser())
-        .catch(err => console.log(err));
-    }
+        // .catch(err => console.log(err));
+        console.log(this.state.email);
+        
+        
+    }  
+    
 };
 
 render() {
     return(
-        <Container fluid>
+        <Container style={homeStyle} fluid>
             <Row>
-                <Col size="md-6">
+                <Col size="md-6" style={homeStyle}>
                     <form>
                     <Input
                     value={this.state.email}
@@ -93,6 +122,12 @@ render() {
                     name="userState"
                     placeholder= "State (required)"
                     />
+                     <Input
+                    value={this.state.zip}
+                    onChange={this.handleInputChange}
+                    name="zip"
+                    placeholder= "Zip (required)"
+                    />
                     <FormBtn
                     onClick={this.handleFormSubmit}
                     >
@@ -103,8 +138,7 @@ render() {
             </Row>
         </Container>
     );
-}
-
+    }
 }
 
 export default UserInfo;

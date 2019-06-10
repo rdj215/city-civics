@@ -6,8 +6,8 @@ app.use(cors())
 // const express = require("express");
 const mongoose = require("mongoose");
 
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // app.use(function (req, res, next) {
 
